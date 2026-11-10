@@ -22,14 +22,14 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # === CONFIG ===
-BOT_TOKEN = os.getenv("BOT_TOKEN")
+BOT_TOKEN = os.getenv("9121110730:AAGXUMGVxGyzVqHK9dp_rMm2Fg0N_Tk6B6Q")
 
 if not BOT_TOKEN:
     logger.error("❌ BOT_TOKEN not found! Please set your bot token in environment variables.")
     sys.exit(1)
 
-REQUIRED_CHANNELS = []
-GROUP_JOIN_LINK = ""
+REQUIRED_CHANNELS = [https://t.me/Ffdailylikes_updates]
+GROUP_JOIN_LINK = "https://t.me/Garena_Likes_Group"
 OWNER_ID = 6703377583    #Example: 6282811167
 OWNER_USERNAME = "@Mr_AnonymoussX"
 
