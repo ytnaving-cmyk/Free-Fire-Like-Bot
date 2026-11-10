@@ -126,8 +126,9 @@ def start_command(message):
     user_id = message.from_user.id
     if not is_user_in_channel(user_id):
         markup = InlineKeyboardMarkup()
-        for channel in REQUIRED_CHANNELS:
+       for channel in REQUIRED_CHANNELS:
             
+
         bot.reply_to(message, "📢 Channel Membership Required\nTo use this bot, you must join all our channels first", reply_markup=markup, parse_mode="Markdown")
         return
     if user_id not in like_tracker:
