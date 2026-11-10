@@ -22,13 +22,13 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # === CONFIG ===
-BOT_TOKEN = os.getenv("9121110730:AAGXUMGVxGyzVqHK9dp_rMm2Fg0N_Tk6B6Q")
+BOT_TOKEN = os.getenv("BOT_TOKEN")
 
 if not BOT_TOKEN:
     logger.error("❌ BOT_TOKEN not found! Please set your bot token in environment variables.")
     sys.exit(1)
 
-REQUIRED_CHANNELS = ["https://t.me/Ffdailylikes_updates"]
+REQUIRED_CHANNELS = ["@Ffdailylikes_updates"]
 GROUP_JOIN_LINK = "https://t.me/Garena_Likes_Group"
 OWNER_ID = 6703377583    #Example: 6282811167
 OWNER_USERNAME = "@Mr_AnonymoussX"
@@ -126,10 +126,9 @@ def start_command(message):
     user_id = message.from_user.id
     if not is_user_in_channel(user_id):
         markup = InlineKeyboardMarkup()
-       for channel in REQUIRED_CHANNELS:
-              markup.add(InlineKeyboardButton(f"🔗 Join {channel}", url=f"https://t.me/{channel.strip('@')}") )  
-
-      bot.reply_to(message, "📢 Channel Membership Required\nTo use this bot, you must join all our channels first", reply_markup=markup, parse_mode="Markdown")
+        for channel in REQUIRED_CHANNELS:
+            markup.add(InlineKeyboardButton(f"🔗 Join {channel}", url=f"https://t.me/{channel.strip('@')}") )
+        bot.reply_to(message, "📢 Channel Membership Required\nTo use this bot, you must join all our channels first", reply_markup=markup, parse_mode="Markdown")
         return
     if user_id not in like_tracker:
         like_tracker[user_id] = {"used": 0, "last_used": datetime.now() - timedelta(days=1)}
@@ -145,7 +144,7 @@ def handle_like(message):
     # Only allow in groups, not in private messages (except owner)
     if message.chat.type == "private" and message.from_user.id != OWNER_ID:
         markup = InlineKeyboardMarkup()
-        markup.add(InlineKeyboardButton("🔗 Join Channel", url=https://t.me/Ffdailylikes_updates))
+        markup.add(InlineKeyboardButton("🔗 Join Official Group", url=GROUP_JOIN_LINK))
         bot.reply_to(message, "❌ Sorry! command is not allowed here.\n\nJoin our official group:", reply_markup=markup)
         return
 
