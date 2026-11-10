@@ -127,7 +127,7 @@ def start_command(message):
     if not is_user_in_channel(user_id):
         markup = InlineKeyboardMarkup()
         for channel in REQUIRED_CHANNELS:
-            markup.add(InlineKeyboardButton(f"🔗 Join {channel}", url=f"https://t.me/{channel.strip('@')}") )
+            
         bot.reply_to(message, "📢 Channel Membership Required\nTo use this bot, you must join all our channels first", reply_markup=markup, parse_mode="Markdown")
         return
     if user_id not in like_tracker:
